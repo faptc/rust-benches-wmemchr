@@ -2,7 +2,7 @@ macro_rules! if_return {
     ($start:ident, $ptr:ident, $needle:ident, $($n:literal,)+) => {
         $(
             if $start[$n] == $needle {
-                return Some(unsafe { (&$start[$n] as *const _).offset_from($ptr) } as usize);
+                return Some(unsafe { (&$start[$n] as *const u16).offset_from($ptr) } as usize);
             }
         )+
     }
