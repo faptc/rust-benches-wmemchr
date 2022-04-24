@@ -2,7 +2,7 @@ macro_rules! if_return {
     ($start:ident, $ptr:ident, $needle:ident, $($n:literal,)+) => {
         $(
             if $start[$n] == $needle {
-                return Some((&$start[$n] as *const u16 as usize - $ptr as usize) / 2);
+                return Some(($start[$n..].as-ptr().offset_from(ptr) as usize);
             }
         )+
     }
